@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.js --mode=production",
     "build:watch": "npm run build -- --watch",
-    "dev": "webpack-dev-server --open --config webpack.config.js --mode=development",
-    "dev:hot": "npm run dev -- --hot"
+    "start": "webpack-dev-server --open --config webpack.config.js --mode=development",
+    "start:hot": "npm run dev -- --hot"
   },
   "repository": {
     "type": "git",

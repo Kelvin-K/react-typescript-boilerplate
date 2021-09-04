@@ -10,6 +10,7 @@ import CheckListPage from './checkListPage';
 import ContactPage from './contactPage';
 import HomePage from './homePage';
 import LoginPage from './loginPage';
+import SignUpPage from './signUpPage';
 
 interface StateProps {
 
@@ -34,6 +35,9 @@ export class BasePageComponent extends React.Component<StateProps & DispatchProp
 					</Route>
 					<Route path={RouteConstants.contactRoute}>
 						<ContactPage />
+					</Route>
+					<Route path={RouteConstants.signUpRoute}>
+						<SignUpPage />
 					</Route>
 					<Route path={RouteConstants.homeRoute}>
 						<HomePage />

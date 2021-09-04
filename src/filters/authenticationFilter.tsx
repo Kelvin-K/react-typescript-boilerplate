@@ -43,6 +43,9 @@ export class AuthenticationFilterComponent extends React.Component<StateProps & 
 
 		const { location } = this.props;
 
+		if (!RouteHelper.validRoutes().includes(location.pathname))
+			return <Redirect to={RouteConstants.homeRoute} />;
+
 		if (RouteHelper.commonRoutes().includes(location.pathname))
 			return this.props.children;
 

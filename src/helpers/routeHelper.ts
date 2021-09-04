@@ -2,15 +2,33 @@ import RouteConstants from "../constants/routeConstants";
 
 class RouteHelper {
 	static authenticatedRoutes = (): string[] => {
-		return [RouteConstants.checkListRoute];
+		return [
+			RouteConstants.checkListRoute
+		];
 	}
 
 	static unAuthenticatedRoutes = (): string[] => {
-		return [RouteConstants.loginRoute];
+		return [
+			RouteConstants.loginRoute,
+			RouteConstants.signUpRoute
+		];
 	}
 
 	static commonRoutes = (): string[] => {
-		return [RouteConstants.homeRoute, RouteConstants.contactRoute];
+		return [
+			RouteConstants.homeRoute,
+			RouteConstants.contactRoute
+		];
+	}
+
+	static validRoutes = (): string[] => {
+		return [
+			RouteConstants.homeRoute,
+			RouteConstants.contactRoute,
+			RouteConstants.checkListRoute,
+			RouteConstants.loginRoute,
+			RouteConstants.signUpRoute
+		];
 	}
 
 	static getSearchParameters = (routerSearch: string): { [property: string]: string } => {

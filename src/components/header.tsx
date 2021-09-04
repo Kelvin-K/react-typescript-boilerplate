@@ -46,7 +46,10 @@ export class HeaderComponent extends React.Component<StateProps & DispatchProps,
 									<Link className="menu-item" to={RouteConstants.checkListRoute}>Check List</Link>
 									<div className="menu-item" onClick={this.logout}>Logout {this.props.firstName + " " + this.props.lastName}</div>
 								</> :
-								<Link className="menu-item" to={RouteConstants.loginRoute}>Login</Link>
+								<>
+									<Link className="menu-item" to={RouteConstants.loginRoute}>Login</Link>
+									<Link className="menu-item" to={RouteConstants.signUpRoute}>SignUp</Link>
+								</>
 						}
 					</div>
 				</div>
