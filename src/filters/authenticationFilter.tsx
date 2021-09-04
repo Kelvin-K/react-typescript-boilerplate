@@ -1,3 +1,4 @@
+import { StatusCodes } from 'http-status-codes';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
@@ -14,18 +15,26 @@ interface StateProps extends RouteComponentProps {
 }
 
 class DispatchProps {
-	authenticationStatusChecked = () => {
-		return { type: StoreConstants.AUTHENTICATION_STATUS_CHECKED };
+	authenticationStatusChecked = (isAuthenticated: boolean, firstName: string, lastName: string) => {
+		return { type: StoreConstants.AUTHENTICATION_STATUS_CHECKED, isAuthenticated, firstName, lastName };
 	}
 }
 
 export class AuthenticationFilterComponent extends React.Component<StateProps & DispatchProps, any>
 {
-	componentDidMount() {
-		if (!this.props.isAuthenticationStatusChecked)
-			setTimeout(() => {
-				this.props.authenticationStatusChecked();
-			}, 2000);
+	async componentDidMount() {
+		if (!this.props.isAuthenticationStatusChecked) {
+			let response = await fetch("/api/authentication/status");
+			switch (response.status) {
+				case StatusCodes.UNAUTHORIZED:
+					this.props.authenticationStatusChecked(false, "", "");
+					break;
+				case StatusCodes.OK:
+					let body = await response.json();
+					this.props.authenticationStatusChecked(true, body.firstName, body.lastName);
+					break;
+			}
+		}
 	}
 
 	render() {

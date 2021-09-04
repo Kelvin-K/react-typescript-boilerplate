@@ -1,3 +1,4 @@
+import { StatusCodes } from 'http-status-codes';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
@@ -8,6 +9,8 @@ import StoreConstants from './../constants/storeConstants';
 
 interface StateProps {
 	isAuthenticated: boolean;
+	firstName: string;
+	lastName: string;
 }
 
 class DispatchProps {
@@ -18,6 +21,15 @@ class DispatchProps {
 
 export class HeaderComponent extends React.Component<StateProps & DispatchProps, any>
 {
+	logout = async () => {
+		let response = await fetch("/api/authentication/logout", {
+			method: "POST"
+		});
+
+		if (response.status === StatusCodes.OK)
+			this.props.logout();
+	}
+
 	render() {
 		return (
 			<header className="header">
@@ -32,7 +44,7 @@ export class HeaderComponent extends React.Component<StateProps & DispatchProps,
 							this.props.isAuthenticated ?
 								<>
 									<Link className="menu-item" to={RouteConstants.checkListRoute}>Check List</Link>
-									<div className="menu-item" onClick={this.props.logout}>Logout</div>
+									<div className="menu-item" onClick={this.logout}>Logout {this.props.firstName + " " + this.props.lastName}</div>
 								</> :
 								<Link className="menu-item" to={RouteConstants.loginRoute}>Login</Link>
 						}
@@ -46,7 +58,9 @@ export class HeaderComponent extends React.Component<StateProps & DispatchProps,
 function connectStateToProps(state: IAppState, ownProps: any): StateProps {
 	return {
 		...ownProps,
-		isAuthenticated: state.user.isAuthenticated
+		isAuthenticated: state.user.isAuthenticated,
+		firstName: state.user.firstName,
+		lastName: state.user.lastName
 	};
 }
 
@@ -55,4 +69,4 @@ function connectDispatchToProps(dispatch: any): DispatchProps {
 }
 
 let Header = connect(connectStateToProps, connectDispatchToProps)(HeaderComponent);
-export default Header
+export default Header;

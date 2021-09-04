@@ -3,7 +3,7 @@ class RouteConstants {
 	static readonly contactRoute = "/contact";
 	static readonly checkListRoute = "/check-list";
 	static readonly loginRoute = "/login";
-	static readonly postLoginDefaultRedirectRoute = RouteConstants.homeRoute;
+	static readonly postLoginDefaultRedirectRoute = RouteConstants.checkListRoute;
 }
 
 export default RouteConstants;
