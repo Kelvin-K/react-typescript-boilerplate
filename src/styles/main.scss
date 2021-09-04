@@ -1,0 +1,62 @@
+@import "./modules/fonts.scss";
+@import "./modules/settings.scss";
+@import "./modules/palate.scss";
+@import "./modules/mixin.scss";
+@import "./modules/icons.scss";
+
+@import "./components/**/*";
+@import "./pages/**/*";
+
+html {
+    box-sizing: border-box;
+    font-size: $fontSizeNormal;
+    font-family: $fontFamily;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    padding: 0px;
+    margin: 0px;
+}
+
+.better {
+	min-height: 200px;
+	width: 100vw;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.better-title {
+	font-size: 40px;
+	background-color: darken($color: $color3, $amount: 20%);
+}
+
+.better-form {
+	width: 400px;
+	background-color: $color3;
+	padding: 20px;
+	margin: 20px;
+}
+
+.form-title{
+	text-align: center;
+	margin: 10px;
+}
+
+.input-section {
+	margin-top: 10px;
+
+	.input-holder{
+		margin-top: 5px;
+	}
+}
+
+input,
+button {
+	height: 30px;
+	padding: 5px;
+	width: 100%;
+}

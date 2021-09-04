@@ -1,0 +1,39 @@
+.header {
+	background-color: $color3;
+	padding: 10px 20px;
+}
+
+.header-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.left-part {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.right-part {
+	display: flex;
+	align-items: center;
+}
+
+.menu-item {
+	text-decoration: none;
+	color: $color1;
+	margin-left: 20px;
+	display: block;
+	padding: 5px 10px;
+	border-radius: 5px;
+	user-select: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $color2;
+	}
+
+	&:active {
+		background-color: $color3;
+	}
+}
