@@ -150,18 +150,18 @@ export class SignUpPageComponent extends React.Component<StateProps & DispatchPr
 							<div className="error-msg" ref={this.confirmPasswordError} />
 						</div>
 						<div className="input-section">
-							<label htmlFor="LastName" className="input-title">Last Name: </label>
-							<div className="input-holder">
-								<input type="text" id="LastName" name="LastName" ref={this.lastName} />
-							</div>
-							<div className="error-msg" ref={this.lastNameError} />
-						</div>
-						<div className="input-section">
 							<label htmlFor="FirstName" className="input-title">First Name: </label>
 							<div className="input-holder">
 								<input type="text" id="FirstName" name="FirstName" ref={this.firstName} />
 							</div>
 							<div className="error-msg" ref={this.firstNameError} />
+						</div>
+						<div className="input-section">
+							<label htmlFor="LastName" className="input-title">Last Name: </label>
+							<div className="input-holder">
+								<input type="text" id="LastName" name="LastName" ref={this.lastName} />
+							</div>
+							<div className="error-msg" ref={this.lastNameError} />
 						</div>
 						<div className="input-section">
 							<div className="input-holder">
