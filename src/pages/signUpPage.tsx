@@ -30,6 +30,10 @@ export class SignUpPageComponent extends React.Component<StateProps & DispatchPr
 
 	commonMessage = React.createRef<HTMLInputElement>();
 
+	componentDidMount() {
+		document.title = "Sign Up | React Typescript Boilerplate";
+	}
+
 	validateAndSignUp = () => {
 		let userName = this.userName.current.value;
 		let password = this.password.current.value;

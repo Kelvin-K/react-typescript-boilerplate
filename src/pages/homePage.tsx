@@ -13,6 +13,10 @@ class DispatchProps {
 
 export class HomePageComponent extends React.Component<StateProps & DispatchProps, any>
 {
+	componentDidMount() {
+		document.title = "Home | React Typescript Boilerplate";
+	}
+
 	render() {
 		return (
 			<div className="HomePage">

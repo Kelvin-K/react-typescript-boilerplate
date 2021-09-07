@@ -22,6 +22,10 @@ export class LoginPageComponent extends React.Component<StateProps & DispatchPro
 	userNameError = React.createRef<HTMLDivElement>();
 	passwordError = React.createRef<HTMLDivElement>();
 
+	componentDidMount() {
+		document.title = "Login | React Typescript Boilerplate";
+	}
+
 	validateAndLogin = () => {
 		let userName = this.userName.current.value;
 		let password = this.password.current.value;

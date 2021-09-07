@@ -13,6 +13,10 @@ class DispatchProps {
 
 export class CheckListPageComponent extends React.Component<StateProps & DispatchProps, any>
 {
+	componentDidMount() {
+		document.title = "Check List | React Typescript Boilerplate";
+	}
+
 	render() {
 		return (
 			<div className="CheckListPage">

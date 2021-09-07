@@ -13,6 +13,10 @@ class DispatchProps {
 
 export class ContactPageComponent extends React.Component<StateProps & DispatchProps, any>
 {
+	componentDidMount() {
+		document.title = "Contact | React Typescript Boilerplate";
+	}
+
 	render() {
 		return (
 			<div className="ContactPage">
