@@ -26,6 +26,8 @@
 	display: block;
 	padding: 5px 10px;
 	border-radius: 5px;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	cursor: pointer;
 

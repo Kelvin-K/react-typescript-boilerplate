@@ -35,50 +35,50 @@ export class SignUpPageComponent extends React.Component<StateProps & DispatchPr
 	}
 
 	validateAndSignUp = () => {
-		let userName = this.userName.current.value;
-		let password = this.password.current.value;
-		let confirmPassword = this.confirmPassword.current.value;
-		let firstName = this.firstName.current.value;
-		let lastName = this.lastName.current.value;
+		let userName = this.userName.current?.value;
+		let password = this.password.current?.value;
+		let confirmPassword = this.confirmPassword.current?.value;
+		let firstName = this.firstName.current?.value;
+		let lastName = this.lastName.current?.value;
 		let valid = true;
 
 		if (!userName) {
-			this.userNameError.current.innerText = "Username can not be empty!";
+			this.userNameError.current!.innerText = "Username can not be empty!";
 			valid = false;
 		}
 		else
-			this.userNameError.current.innerText = "";
+			this.userNameError.current!.innerText = "";
 
 		if (!password) {
-			this.passwordError.current.innerText = "Password can not be empty!";
+			this.passwordError.current!.innerText = "Password can not be empty!";
 			valid = false;
 		}
 		else if (!confirmPassword) {
-			this.confirmPasswordError.current.innerText = "Confirm password can not be empty!";
+			this.confirmPasswordError.current!.innerText = "Confirm password can not be empty!";
 			valid = false;
 		}
 		else if (password !== confirmPassword) {
-			this.confirmPasswordError.current.innerText = "Confirm password must match password!";
+			this.confirmPasswordError.current!.innerText = "Confirm password must match password!";
 			valid = false;
 		}
 		else {
-			this.passwordError.current.innerText = "";
-			this.confirmPasswordError.current.innerText = "";
+			this.passwordError.current!.innerText = "";
+			this.confirmPasswordError.current!.innerText = "";
 		}
 
 		if (!firstName) {
-			this.firstNameError.current.innerText = "First name can not be empty!";
+			this.firstNameError.current!.innerText = "First name can not be empty!";
 			valid = false;
 		}
 		else
-			this.firstNameError.current.innerText = "";
+			this.firstNameError.current!.innerText = "";
 
 		if (!lastName) {
-			this.lastNameError.current.innerText = "Last name can not be empty!";
+			this.lastNameError.current!.innerText = "Last name can not be empty!";
 			valid = false;
 		}
 		else
-			this.lastNameError.current.innerText = "";
+			this.lastNameError.current!.innerText = "";
 
 		if (valid)
 			this.signUp({
@@ -112,12 +112,12 @@ export class SignUpPageComponent extends React.Component<StateProps & DispatchPr
 						}
 						break;
 					case "userNameError":
-						this.userNameError.current.innerText = body.message;
+						this.userNameError.current!.innerText = body.message;
 						break;
 				}
 				break;
 			case StatusCodes.OK:
-				this.commonMessage.current.innerText = "Sign Up Successful!\nPlease wait while we redirect you to login page";
+				this.commonMessage.current!.innerText = "Sign Up Successful!\nPlease wait while we redirect you to login page";
 				setTimeout(() => {
 					const { history } = this.props;
 					history.push(RouteConstants.loginRoute);

@@ -27,25 +27,25 @@ export class LoginPageComponent extends React.Component<StateProps & DispatchPro
 	}
 
 	validateAndLogin = () => {
-		let userName = this.userName.current.value;
-		let password = this.password.current.value;
+		let userName = this.userName.current?.value || null;
+		let password = this.password.current?.value || null;
 		let valid = true;
 
 		if (!userName) {
-			this.userNameError.current.innerText = "Username can not be empty!";
+			this.userNameError.current!.innerText = "Username can not be empty!";
 			valid = false;
 		}
 		else
-			this.userNameError.current.innerText = "";
+			this.userNameError.current!.innerText = "";
 
 		if (!password) {
-			this.passwordError.current.innerText = "Password can not be empty!";
+			this.passwordError.current!.innerText = "Password can not be empty!";
 			valid = false;
 		}
 		else
-			this.passwordError.current.innerText = "";
+			this.passwordError.current!.innerText = "";
 
-		if (valid)
+		if (userName && password && valid)
 			this.login(userName, password);
 	}
 
@@ -62,10 +62,10 @@ export class LoginPageComponent extends React.Component<StateProps & DispatchPro
 		});
 		switch (response.status) {
 			case StatusCodes.NOT_FOUND:
-				this.userNameError.current.innerText = "User not found!";
+				this.userNameError.current!.innerText = "User not found!";
 				break;
 			case StatusCodes.UNAUTHORIZED:
-				this.passwordError.current.innerText = "Invalid credentials!";
+				this.passwordError.current!.innerText = "Invalid credentials!";
 				break;
 			case StatusCodes.OK:
 				let body = await response.json();
