@@ -20,7 +20,10 @@ export class HomePageComponent extends React.Component<StateProps & DispatchProp
 	render() {
 		return (
 			<div className="HomePage">
-				<div className="better better-title">Home Page</div>
+				<div className="better better-coloured">
+					<div className="better-title">Home Page</div>
+					<p className='description'>Welcome to Home Page</p>
+				</div>
 			</div>
 		);
 	}

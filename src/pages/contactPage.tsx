@@ -20,7 +20,10 @@ export class ContactPageComponent extends React.Component<StateProps & DispatchP
 	render() {
 		return (
 			<div className="ContactPage">
-				<div className="better better-title">Contact Page</div>
+				<div className="better better-coloured">
+					<div className="better-title">Contact Page</div>
+					<p className='description'>Welcome to Contact Page</p>
+				</div>
 			</div>
 		);
 	}

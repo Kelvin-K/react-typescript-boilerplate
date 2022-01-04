@@ -16,7 +16,12 @@ export class FooterComponent extends React.Component<StateProps & DispatchProps,
 	render() {
 		return (
 			<div className="footer">
-				footer
+				<div className="footer__left">No rights required</div>
+				<div className="footer__right">
+					<div className="footer__link"><a href="https://www.google.com/" target="_black">Google</a></div>
+					<div className="footer__link"><a href="https://www.facebook.com/" target="_black">Facebook</a></div>
+					<div className="footer__link"><a href="https://twitter.com/" target="_black">Twitter</a></div>
+				</div>
 			</div>
 		);
 	}

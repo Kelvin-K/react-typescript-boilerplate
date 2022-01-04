@@ -20,7 +20,10 @@ export class CheckListPageComponent extends React.Component<StateProps & Dispatc
 	render() {
 		return (
 			<div className="CheckListPage">
-				<div className="better better-title">Check List Page</div>
+				<div className="better better-coloured">
+					<div className="better-title">Check List Page</div>
+					<p className='description'>Welcome to Check List Page</p>
+				</div>
 			</div>
 		);
 	}

@@ -4,13 +4,14 @@ import { Route, Switch } from 'react-router';
 import { bindActionCreators } from 'redux';
 import Footer from '../components/footer';
 import Header from '../components/header';
+import Loading from '../components/Loading';
 import IAppState from '../interfaces/IAppState';
 import RouteConstants from './../constants/routeConstants';
-import CheckListPage from './checkListPage';
-import ContactPage from './contactPage';
-import HomePage from './homePage';
-import LoginPage from './loginPage';
-import SignUpPage from './signUpPage';
+const ContactPage = React.lazy(() => import('./contactPage'));
+const HomePage = React.lazy(() => import('./homePage'));
+const SignUpPage = React.lazy(() => import('./signUpPage'));
+const CheckListPage = React.lazy(() => import('./checkListPage'));
+const LoginPage = React.lazy(() => import('./loginPage'));
 
 interface StateProps {
 
@@ -28,19 +29,29 @@ export class BasePageComponent extends React.Component<StateProps & DispatchProp
 				<Header />
 				<Switch>
 					<Route path={RouteConstants.loginRoute}>
-						<LoginPage />
+						<React.Suspense fallback={<Loading />}>
+							<LoginPage />
+						</React.Suspense>
 					</Route>
 					<Route path={RouteConstants.checkListRoute}>
-						<CheckListPage />
+						<React.Suspense fallback={<Loading />}>
+							<CheckListPage />
+						</React.Suspense>
 					</Route>
 					<Route path={RouteConstants.contactRoute}>
-						<ContactPage />
+						<React.Suspense fallback={<Loading />}>
+							<ContactPage />
+						</React.Suspense>
 					</Route>
 					<Route path={RouteConstants.signUpRoute}>
-						<SignUpPage />
+						<React.Suspense fallback={<Loading />}>
+							<SignUpPage />
+						</React.Suspense>
 					</Route>
 					<Route path={RouteConstants.homeRoute}>
-						<HomePage />
+						<React.Suspense fallback={<Loading />}>
+							<HomePage />
+						</React.Suspense>
 					</Route>
 				</Switch>
 				<Footer />
