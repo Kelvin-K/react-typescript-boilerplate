@@ -78,9 +78,9 @@
 	"initialize Class": {
 		"prefix": "init",
 		"body": [
-			"import * as React from 'react';",
+			"import React, { Component } from 'react';",
 			"",
-			"export default class ${1:${TM_FILENAME_BASE/(.)/${1:/upcase}/}} extends React.Component",
+			"export default class ${1:${TM_FILENAME_BASE/(.)/${1:/upcase}/}} extends Component",
 			"{",
 			"\trender()",
 			"\t{",
@@ -96,7 +96,7 @@
 	"initizlize Redux Class": {
 		"prefix": "initr",
 		"body": [
-			"import * as React from 'react';",
+			"import React, { Component } from 'react';",
 			"import { connect } from 'react-redux';",
 			"import { bindActionCreators } from 'redux';",
 			"import IAppState from '../interfaces/IAppState';",
@@ -111,7 +111,7 @@
 			"",
 			"}",
 			"",
-			"export class ${1:${TM_FILENAME_BASE/(.)/${1:/upcase}/}}Component extends React.Component<StateProps & DispatchProps, any>",
+			"export class ${1:${TM_FILENAME_BASE/(.)/${1:/upcase}/}}Component extends Component<StateProps & DispatchProps, any>",
 			"{",
 			"\trender()",
 			"\t{",

@@ -1,5 +1,5 @@
 import { StatusCodes } from "http-status-codes";
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import IAppState from '../interfaces/IAppState';
@@ -14,7 +14,7 @@ class DispatchProps {
 	}
 }
 
-export class LoginPageComponent extends React.Component<StateProps & DispatchProps, any>
+export class LoginPageComponent extends Component<StateProps & DispatchProps, any>
 {
 	userName = React.createRef<HTMLInputElement>();
 	password = React.createRef<HTMLInputElement>();

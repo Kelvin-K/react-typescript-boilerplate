@@ -1,5 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { bindActionCreators } from 'redux';
@@ -19,7 +19,7 @@ class DispatchProps {
 	}
 }
 
-export class HeaderComponent extends React.Component<StateProps & DispatchProps, any>
+export class HeaderComponent extends Component<StateProps & DispatchProps, any>
 {
 	logout = async () => {
 		let response = await fetch("/api/authentication/logout", {
@@ -32,7 +32,7 @@ export class HeaderComponent extends React.Component<StateProps & DispatchProps,
 
 	render() {
 		return (
-			<header className="header">
+			<header>
 				<div className="header-content">
 					<div className="left-part">
 						LOGO

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import IAppState from '../interfaces/IAppState';
@@ -11,7 +11,7 @@ class DispatchProps {
 
 }
 
-export class CheckListPageComponent extends React.Component<StateProps & DispatchProps, any>
+export class CheckListPageComponent extends Component<StateProps & DispatchProps, any>
 {
 	componentDidMount() {
 		document.title = "Check List | React Typescript Boilerplate";

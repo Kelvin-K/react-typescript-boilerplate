@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { bindActionCreators } from 'redux';
@@ -21,7 +21,7 @@ class DispatchProps {
 
 }
 
-export class BasePageComponent extends React.Component<StateProps & DispatchProps, any>
+export class BasePageComponent extends Component<StateProps & DispatchProps, any>
 {
 	render() {
 		return (

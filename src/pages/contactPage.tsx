@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import IAppState from '../interfaces/IAppState';
@@ -11,7 +11,7 @@ class DispatchProps {
 
 }
 
-export class ContactPageComponent extends React.Component<StateProps & DispatchProps, any>
+export class ContactPageComponent extends Component<StateProps & DispatchProps, any>
 {
 	componentDidMount() {
 		document.title = "Contact | React Typescript Boilerplate";

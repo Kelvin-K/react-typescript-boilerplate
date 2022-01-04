@@ -1,5 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, RouteComponentProps, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -20,7 +20,7 @@ class DispatchProps {
 	}
 }
 
-export class AuthenticationFilterComponent extends React.Component<StateProps & DispatchProps, any>
+export class AuthenticationFilterComponent extends Component<StateProps & DispatchProps, any>
 {
 	async componentDidMount() {
 		if (!this.props.isAuthenticationStatusChecked) {
