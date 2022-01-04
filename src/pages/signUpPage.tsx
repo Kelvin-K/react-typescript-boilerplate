@@ -1,5 +1,5 @@
 import { StatusCodes } from 'http-status-codes';
-import * as React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -14,7 +14,7 @@ class DispatchProps {
 
 }
 
-export class SignUpPageComponent extends React.Component<StateProps & DispatchProps, any>
+export class SignUpPageComponent extends Component<StateProps & DispatchProps, any>
 {
 	userName = React.createRef<HTMLInputElement>();
 	password = React.createRef<HTMLInputElement>();
@@ -34,7 +34,9 @@ export class SignUpPageComponent extends React.Component<StateProps & DispatchPr
 		document.title = "Sign Up | React Typescript Boilerplate";
 	}
 
-	validateAndSignUp = () => {
+	validateAndSignUp = (ev: React.FormEvent) => {
+		ev.preventDefault();
+
 		let userName = this.userName.current?.value;
 		let password = this.password.current?.value;
 		let confirmPassword = this.confirmPassword.current?.value;
@@ -130,7 +132,7 @@ export class SignUpPageComponent extends React.Component<StateProps & DispatchPr
 		return (
 			<div className="SignUpPage">
 				<div className="better">
-					<div className="better-form">
+					<form className="better-form" onSubmit={this.validateAndSignUp}>
 						<h1 className="form-title">Sign Up</h1>
 						<div className="input-section">
 							<label htmlFor="UserName" className="input-title">Username: </label>
@@ -169,11 +171,11 @@ export class SignUpPageComponent extends React.Component<StateProps & DispatchPr
 						</div>
 						<div className="input-section">
 							<div className="input-holder">
-								<button onClick={this.validateAndSignUp}>Sign Up</button>
+								<button type='submit'>Sign Up</button>
 							</div>
 						</div>
 						<div className="common-msg" ref={this.commonMessage} />
-					</div>
+					</form>
 				</div>
 			</div>
 		);

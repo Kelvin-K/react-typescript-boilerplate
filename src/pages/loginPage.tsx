@@ -26,7 +26,9 @@ export class LoginPageComponent extends React.Component<StateProps & DispatchPro
 		document.title = "Login | React Typescript Boilerplate";
 	}
 
-	validateAndLogin = () => {
+	validateAndLogin = (ev: React.FormEvent) => {
+		ev.preventDefault();
+
 		let userName = this.userName.current?.value || null;
 		let password = this.password.current?.value || null;
 		let valid = true;
@@ -78,7 +80,7 @@ export class LoginPageComponent extends React.Component<StateProps & DispatchPro
 		return (
 			<div className="LoginPage">
 				<div className="better">
-					<div className="better-form">
+					<form className="better-form" onSubmit={this.validateAndLogin}>
 						<h1 className="form-title">Login</h1>
 						<div className="input-section">
 							<label htmlFor="UserName" className="input-title">Username: </label>
@@ -96,10 +98,10 @@ export class LoginPageComponent extends React.Component<StateProps & DispatchPro
 						</div>
 						<div className="input-section">
 							<div className="input-holder">
-								<button onClick={this.validateAndLogin}>Login</button>
+								<button type="submit">Login</button>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		);
